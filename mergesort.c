@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define SIZE 10000
 
@@ -43,15 +44,18 @@ int main(void) {
 
     int buf[SIZE] = {};
     int arr[SIZE] = {};
-    for (int i = 0; i < 10000; i++) {
-        int size = (SIZE / 2) + rand() % (SIZE - SIZE / 2);
-
-        for (int a = 0; a < size; a++) {
+    for (int i = 0; i < 1000; i++) {
+        for (int a = 0; a < SIZE; a++) {
             arr[a] = rand() % (SIZE * 10);
         }
 
-        mergesort(arr, buf, size);
+        mergesort(arr, buf, SIZE);
     }
+
+    for (int i = 0; i < SIZE; i++) {
+        printf("%i,", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
